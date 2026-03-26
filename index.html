@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Amara Banquets | East Delhi's Premium Venue</title>
+    <!-- Ultra Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Jost:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- ROYAL HERITAGE VARIABLES --- */
+        :root {
+            --wine-dark: #2A0812;     /* Deep Burgundy/Wine */
+            --wine-light: #4A1525;    /* Lighter Burgundy */
+            --gold-primary: #D4AF37;  /* Rich Gold */
+            --gold-light: #F3E5AB;    /* Champagne Gold */
+            --cream-bg: #FCFBF8;      /* Warm Ivory */
+            --text-dark: #1A1A1A;
+            --text-muted: #666666;
+            
+            --font-heading: 'Cinzel Decorative', serif;
+            --font-body: 'Jost', sans-serif;
+            --font-accent: 'Pinyon Script', cursive;
+        }
+
+        /* --- GLOBAL SETUP --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text-dark); background-color: var(--cream-bg); line-height: 1.7; overflow-x: hidden; }
+
+        /* Fallback for images to prevent broken look */
+        img { display: block; width: 100%; height: 100%; object-fit: cover; background: linear-gradient(135deg, var(--wine-light), var(--wine-dark)); position: relative; color: transparent; }
+        img::after { content: "Grand Amara"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-heading); color: var(--gold-primary); font-size: 1.2rem; }
+
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: fixed; top: 0; width: 100%; padding: 25px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(252, 251, 248, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3); z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+        .logo { text-align: center; }
+        .logo h1 { font-size: 1.8rem; color: var(--wine-dark); line-height: 1; letter-spacing: 2px; }
+        .logo span { font-family: var(--font-body); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; color: var(--gold-primary); font-weight: 500; }
+        
+        .nav-links { display: flex; gap: 35px; list-style: none; }
+        .nav-links a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; color: var(--wine-dark); position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--gold-primary); transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+
+        .btn-outline {
+            padding: 12px 30px; border: 1px solid var(--wine-dark); color: var(--wine-dark);
+            text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;
+        }
+        .btn-outline:hover { background: var(--wine-dark); color: var(--gold-light); border-color: var(--wine-dark); }
+        
+        .btn-solid {
+            padding: 15px 40px; background: var(--wine-dark); color: var(--gold-light);
+            text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; display: inline-block;
+            border: 1px solid var(--wine-dark); cursor: pointer;
+        }
+        .btn-solid:hover { background: transparent; color: var(--wine-dark); }
+
+        /* --- COMMON SECTION STYLES --- */
+        section { padding: 120px 5%; position: relative; }
+        .section-tag { font-family: var(--font-accent); font-size: 3rem; color: var(--gold-primary); line-height: 0.5; text-align: center; display: block; margin-bottom: 15px; }
+        .section-title { text-align: center; font-size: 3.5rem; color: var(--wine-dark); margin-bottom: 60px; line-height: 1.2; }
+
+        /* --- 1. HERO SECTION --- */
+        .hero {
+            height: 100vh; padding: 0; display: flex; align-items: center; justify-content: center;
+            background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            position: relative; text-align: center;
+        }
+        .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(42,8,18,0.6), rgba(42,8,18,0.8)); }
+        
+        .hero-content { position: relative; z-index: 1; color: var(--cream-bg); animation: fadeUp 1.5s ease-out; padding: 0 20px; }
+        .hero-tag { font-family: var(--font-accent); font-size: 4rem; color: var(--gold-primary); margin-bottom: -10px; display: block; }
+        .hero h2 { font-size: 5vw; line-height: 1.1; margin-bottom: 20px; letter-spacing: 4px; text-transform: uppercase; }
+        .hero p { font-size: 1.2rem; font-weight: 300; letter-spacing: 2px; margin-bottom: 40px; text-transform: uppercase; color: var(--gold-light); }
+        
+        /* --- 2. ABOUT (GROUP GURMEET) --- */
+        .about { display: flex; align-items: center; gap: 8%; background: var(--cream-bg); }
+        .about-text { flex: 1; }
+        .about-text .section-tag { text-align: left; }
+        .about-text h2 { font-size: 3.5rem; color: var(--wine-dark); margin-bottom: 30px; line-height: 1.1; }
+        .about-text p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 25px; font-weight: 300; }
+        .about-text .highlight { color: var(--wine-dark); font-weight: 500; font-size: 1.3rem; font-family: var(--font-heading); }
+        
+        .about-images { flex: 1; position: relative; height: 600px; }
+        .img-main { position: absolute; top: 0; right: 0; width: 80%; height: 80%; border-radius: 200px 200px 0 0; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .img-float { position: absolute; bottom: 0; left: 0; width: 50%; height: 50%; border: 15px solid var(--cream-bg); box-shadow: -10px 10px 30px rgba(0,0,0,0.1); }
+
+        /* --- 3. EVENTS (ELEGANT CARDS) --- */
+        .events { background: var(--wine-dark); color: var(--cream-bg); }
+        .events .section-title { color: var(--gold-light); }
+        
+        .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .event-card { text-align: center; group; transition: 0.4s; }
+        .e-img-wrap { width: 100%; aspect-ratio: 3/4; overflow: hidden; margin-bottom: 25px; position: relative; }
+        .e-img-wrap img { transition: transform 0.8s ease; filter: brightness(0.8); }
+        .e-img-wrap::after { content: ''; position: absolute; inset: 15px; border: 1px solid rgba(212, 175, 55, 0.5); pointer-events: none; opacity: 0; transition: 0.4s; }
+        
+        .event-card:hover img { transform: scale(1.08); filter: brightness(1); }
+        .event-card:hover .e-img-wrap::after { opacity: 1; inset: 20px; }
+        
+        .event-card h3 { font-size: 1.8rem; color: var(--gold-primary); margin-bottom: 10px; }
+        .event-card p { font-size: 0.95rem; color: #CCC; font-weight: 300; width: 90%; margin: 0 auto; }
+
+        /* --- 4. FACILITIES (BENTO GRID - 2026 TREND) --- */
+        .facilities { background: var(--cream-bg); }
+        .bento-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 300px);
+            gap: 20px; max-width: 1400px; margin: 0 auto;
+        }
+        .bento-item {
+            background: #fff; padding: 40px; border-radius: 20px; display: flex; flex-direction: column; justify-content: flex-end;
+            position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); transition: 0.4s;
+        }
+        .bento-item:hover { box-shadow: 0 15px 40px rgba(42,8,18,0.08); transform: translateY(-5px); }
+        .bento-item i { position: absolute; top: 40px; right: 40px; font-size: 3rem; color: rgba(212, 175, 55, 0.3); transition: 0.4s; }
+        .bento-item:hover i { color: var(--gold-primary); transform: scale(1.1); }
+        
+        .bento-item h4 { font-size: 1.8rem; color: var(--wine-dark); margin-bottom: 10px; line-height: 1.2; z-index: 2; }
+        .bento-item p { color: var(--text-muted); font-size: 0.95rem; z-index: 2; }
+
+        /* Grid Spans for Bento Effect */
+        .item-1 { grid-column: span 2; background: linear-gradient(135deg, var(--wine-dark), var(--wine-light)); color: var(--cream-bg); }
+        .item-1 h4 { color: var(--gold-primary); font-size: 2.5rem; }
+        .item-1 p { color: var(--cream-bg); font-size: 1.1rem; }
+        .item-1 i { color: rgba(255,255,255,0.1); font-size: 8rem; right: -10px; top: -10px; }
+        
+        .item-2 { grid-column: span 1; }
+        .item-3 { grid-column: span 1; }
+        .item-4 { grid-column: span 1; }
+        .item-5 { grid-column: span 1; }
+        .item-6 { grid-column: span 2; background: #F9F6F0; }
+
+        /* --- 5. GALLERY (LOOKBOOK MASONRY) --- */
+        .gallery { padding-top: 50px; }
+        .lookbook {
+            display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 300px; gap: 15px;
+        }
+        .lb-item { position: relative; overflow: hidden; cursor: crosshair; }
+        .lb-item img { transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .lb-item:hover img { transform: scale(1.05); }
+        
+        .span-col-2 { grid-column: span 2; }
+        .span-row-2 { grid-row: span 2; }
+
+        /* --- 6. CTA BANNER --- */
+        .cta {
+            background: var(--wine-dark); text-align: center; padding: 100px 5%; color: var(--cream-bg);
+            border-top: 5px solid var(--gold-primary); border-bottom: 5px solid var(--gold-primary);
+        }
+        .cta h2 { font-size: 3.5rem; margin-bottom: 30px; color: var(--gold-light); }
+
+        /* --- 7. CONTACT (LUXURY SPACE) --- */
+        .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1400px; margin: 0 auto; }
+        
+        .contact-info { padding-right: 5%; }
+        .c-block { margin-bottom: 40px; display: flex; gap: 25px; align-items: flex-start; }
+        .c-block i { font-size: 2rem; color: var(--gold-primary); margin-top: 5px; }
+        .c-block h4 { font-family: var(--font-body); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 5px; }
+        .c-block p { font-size: 1.3rem; color: var(--wine-dark); font-family: var(--font-heading); }
+        
+        .form-box { background: #fff; padding: 60px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
+        .input-row { display: flex; gap: 20px; margin-bottom: 25px; }
+        .input-group { flex: 1; }
+        .input-group input, .input-group textarea {
+            width: 100%; padding: 15px 20px; border: 1px solid #E5E5E5; background: #FAFAFA;
+            font-family: var(--font-body); font-size: 1rem; color: var(--text-dark); border-radius: 5px; transition: 0.3s;
+        }
+        .input-group input:focus, .input-group textarea:focus { outline: none; border-color: var(--gold-primary); background: #FFF; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1); }
+        .input-group textarea { height: 120px; resize: none; }
+
+        /* --- 8. FOOTER --- */
+        footer { background: var(--wine-dark); color: var(--gold-light); padding: 80px 5% 30px; text-align: center; }
+        .foot-logo { font-size: 3rem; font-family: var(--font-heading); margin-bottom: 10px; }
+        .foot-tag { font-family: var(--font-body); text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; color: #A88D5A; margin-bottom: 40px; display: block; }
+        
+        .foot-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 50px; }
+        .foot-links a { font-family: var(--font-body); text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; color: var(--cream-bg); }
+        .foot-links a:hover { color: var(--gold-primary); }
+        
+        .foot-social a { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 50%; margin: 0 10px; font-size: 1.2rem; transition: 0.3s; }
+        .foot-social a:hover { background: var(--gold-primary); color: var(--wine-dark); }
+        
+        .foot-bottom { margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-family: var(--font-body); font-size: 0.85rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .about { flex-direction: column; text-align: center; }
+            .about-text .section-tag { text-align: center; }
+            .about-images { width: 100%; margin-top: 50px; height: 500px; }
+            .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: minmax(250px, auto); }
+            .item-1, .item-6 { grid-column: span 2; }
+            .lookbook { grid-template-columns: repeat(2, 1fr); }
+            .contact { grid-template-columns: 1fr; }
+            .contact-info { padding-right: 0; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h2 { font-size: 3rem; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .item-1, .item-6 { grid-column: span 1; }
+            .input-row { flex-direction: column; }
+            .form-box { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <h1>Grand Amara</h1>
+            <span>By Group Gurmeet</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">The Legacy</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#facilities">Facilities</a></li>
+            <li><a href="#gallery">Lookbook</a></li>
+        </ul>
+        <a href="#contact" class="btn-outline">Plan Your Event</a>
+    </header>
+
+    <!-- 1. HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Welcome to</span>
+            <h2>Timeless Grandeur</h2>
+            <p>Plot 50, CBD Ground • East Delhi</p>
+            <a href="#contact" class="btn-solid">Reserve Your Date</a>
+        </div>
+    </section>
+
+    <!-- 2. ABOUT -->
+    <section id="about" class="about">
+        <div class="about-text">
+            <span class="section-tag">Established 1996</span>
+            <h2>A Legacy of Celebrations</h2>
+            <p class="highlight">Grand Amara Banquets is a proud unit of Group Gurmeet, bringing over 30 years of mastery in hospitality and event curation.</p>
+            <p>We believe every celebration should be a masterpiece. Spread across a magnificent 35,000 sq ft, our venue is an architectural marvel designed to host luxurious weddings, high-profile corporate events, and intimate social gatherings with absolute perfection and elegance.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Signature_of_John_Hancock.svg/1200px-Signature_of_John_Hancock.svg.png" style="width: 150px; background: none; opacity: 0.6; margin-top: 10px;" alt="Signature">
+        </div>
+        <div class="about-images">
+            <div class="img-main">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Banquet Hall">
+            </div>
+            <div class="img-float">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=600&q=80" alt="Wedding Detail">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. EVENTS -->
+    <section id="events" class="events">
+        <span class="section-tag">Experiences</span>
+        <h2 class="section-title">Events We Host</h2>
+        <div class="events-grid">
+            <div class="event-card">
+                <div class="e-img-wrap"><img src="https://images.pexels.com/photos/35872894/pexels-photo-35872894.jpeg?auto=format&fit=crop&w=600&q=80" alt="Weddings"></div>
+                <h3>Grand Weddings</h3>
+                <p>Experience the ultimate luxury for your special day with majestic setups.</p>
+            </div>
+            <div class="event-card">
+                <div class="e-img-wrap"><img src="https://images.pexels.com/photos/7666513/pexels-photo-7666513.jpeg?auto=format&fit=crop&w=600&q=80" alt="Reception"></div>
+                <h3>Engagement & Reception</h3>
+                <p>Elegant atmospheres crafted specifically for vows and grand receptions.</p>
+            </div>
+            <div class="event-card">
+                <div class="e-img-wrap"><img src="https://images.pexels.com/photos/6405808/pexels-photo-6405808.jpeg?auto=format&fit=crop&w=600&q=80" alt="Corporate"></div>
+                <h3>Corporate Galas</h3>
+                <p>Professional environments equipped for conferences and corporate dinners.</p>
+            </div>
+            <div class="event-card">
+                <div class="e-img-wrap"><img src="https://images.pexels.com/photos/6652684/pexels-photo-6652684.jpeg?auto=format&fit=crop&w=600&q=80" alt="Pre Wedding"></div>
+                <h3>Pre-Wedding Functions</h3>
+                <p>Vibrant spaces ideal for Mehendi, Haldi, Sangeet, and intimate family times.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FACILITIES (BENTO GRID) -->
+    <section id="facilities" class="facilities">
+        <span class="section-tag">Excellence</span>
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="bento-grid">
+            <div class="bento-item item-1">
+                <i class="fa-solid fa-expand"></i>
+                <h4>35,000 Sq Ft<br>Spacious Venue</h4>
+                <p>A massive, pillarless architectural marvel allowing for grand, unrestricted decor and layouts.</p>
+            </div>
+            <div class="bento-item item-2">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <h4>Prime Location</h4>
+                <p>Located in the heart of East Delhi, near Leela Ambience Hotel.</p>
+            </div>
+            <div class="bento-item item-3">
+                <i class="fa-solid fa-snowflake"></i>
+                <h4>Fully Air Conditioned</h4>
+                <p>Supreme comfort for your guests, regardless of the season outside.</p>
+            </div>
+            <div class="bento-item item-4">
+                <i class="fa-solid fa-car"></i>
+                <h4>Valet Service</h4>
+                <p>Stress-free arrival with dedicated valets and ample parking space.</p>
+            </div>
+            <div class="bento-item item-5">
+                <i class="fa-solid fa-users-gear"></i>
+                <h4>Event Management</h4>
+                <p>Professional artisans executing your vision flawlessly.</p>
+            </div>
+            <div class="bento-item item-6">
+                <i class="fa-solid fa-lightbulb"></i>
+                <h4>Elegant Interiors & Mood Lighting</h4>
+                <p>Adorned with premium chandeliers, plush flooring, and customizable lighting to match your event's specific theme and aura.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. GALLERY (LOOKBOOK) -->
+    <section id="gallery" class="gallery">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">The Lookbook</h2>
+        <div class="lookbook">
+            <div class="lb-item span-col-2 span-row-2"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=80" alt="Gallery 1"></div>
+            <div class="lb-item"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=600&q=80" alt="Gallery 2"></div>
+            <div class="lb-item span-row-2"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80" alt="Gallery 3"></div>
+            <div class="lb-item"><img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=600&q=80" alt="Gallery 4"></div>
+            <div class="lb-item span-col-2"><img src="https://images.pexels.com/photos/4717558/pexels-photo-4717558.jpeg?auto=format&fit=crop&w=800&q=80" alt="Gallery 5"></div>
+        </div>
+    </section>
+
+    <!-- 6. CTA -->
+    <section class="cta">
+        <span class="section-tag" style="color: var(--gold-primary);">Begin</span>
+        <h2>Let’s Plan Your Dream Celebration</h2>
+        <a href="#contact" class="btn-outline" style="color: var(--gold-light); border-color: var(--gold-light);">Contact Our Planners</a>
+    </section>
+
+    <!-- 7. CONTACT -->
+    <section id="contact" class="contact">
+        <div class="contact-info">
+            <span class="section-tag" style="text-align: left;">Connect</span>
+            <h2 class="section-title" style="text-align: left; margin-bottom: 40px;">Get In Touch</h2>
+            
+            <div class="c-block">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <h4>The Venue</h4>
+                    <p>Plot 50, CBD Ground Shahdara<br>Near Leela Ambience Hotel<br>East Delhi – 110032</p>
+                </div>
+            </div>
+            <div class="c-block">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                    <h4>Direct Line</h4>
+                    <p>+91 98765 43210</p>
+                </div>
+            </div>
+            <div class="c-block">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p>info@grandamara.com</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-box">
+            <form>
+                <div class="input-row">
+                    <div class="input-group">
+                        <input type="text" placeholder="First Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Last Name" required>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                </div>
+                <div class="input-group" style="margin-bottom: 25px;">
+                    <input type="text" placeholder="Event Date & Type (e.g. Wedding, 500 Guests)" required>
+                </div>
+                <div class="input-group" style="margin-bottom: 25px;">
+                    <textarea placeholder="Any special requirements or message?"></textarea>
+                </div>
+                <button type="submit" class="btn-solid" style="width: 100%;">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER -->
+    <footer>
+        <div class="foot-logo">Grand Amara</div>
+        <span class="foot-tag">A Unit of Group Gurmeet</span>
+        
+        <div class="foot-links">
+            <a href="#about">About</a>
+            <a href="#events">Events</a>
+            <a href="#facilities">Facilities</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+        
+        <div class="foot-social">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        
+        <div class="foot-bottom">
+            &copy; 2026 Grand Amara Banquets. All Rights Reserved. Crafted for Excellence.
+        </div>
+    </footer>
+
+</body>
+</html>
